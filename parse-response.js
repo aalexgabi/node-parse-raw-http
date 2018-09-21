@@ -52,8 +52,8 @@ function parseResponse(data, opt) {
 
   const contentLengthText = headers['content-length'];
   if (contentLengthText) {
-    if (!contentLengthText.match(/^[1-9][0-9]*$/)) {
-      throw new Error('Content-Length does not match /^[1-9][0-9]*$/');
+    if (!contentLengthText.match(/^[0-9]*$/)) {
+      throw new Error('Content-Length does not match /^[0-9]*$/');
     }
     const contentLength = parseInt(contentLengthText, 10);
     if (contentLength != rawBodyData.length) {
